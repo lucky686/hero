@@ -1,6 +1,6 @@
 <p>Register</p>
 
-<form [formGroup]="heroform" (ngSubmit)="onsubmit()">
+<form [formGroup]="heroform" (ngSubmit)="onsubmit(heroform.value)">
     <label>heroid:</label>
     <input id="heroid" type="id" formControlName="heroid">
     <br/>

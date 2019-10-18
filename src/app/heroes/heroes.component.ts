@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule, FormGroup, FormsModule } from '@angular/forms';
 import {HeroserviceService} from '../heroservice.service';
+import { Hero } from '../hero';
 
 @Component({
   selector: 'app-heroes',
@@ -9,7 +10,7 @@ import {HeroserviceService} from '../heroservice.service';
 })
 export class HeroesComponent implements OnInit {
 heroform: FormGroup;
-
+hero: Hero;
   constructor(private heroservice: HeroserviceService) { }
 
   ngOnInit() {
@@ -21,8 +22,11 @@ place : new FormControl(),
     });
 
   }
-onsubmit(): void {
-  console.log(this.heroform);
-  this.heroservice.posthero(this.heroform.value);
+onsubmit(hero: Hero): void {
+  // tslint:disable-next-line: no-shadowed-variable
+  this.heroservice.posthero(hero).subscribe(hero => {
+      this.hero = hero;
+      console.log(hero);
+  });
 }
 }
