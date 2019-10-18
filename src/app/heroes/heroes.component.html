@@ -1,0 +1,13 @@
+<p>Register</p>
+
+<form [formGroup]="heroform" (ngSubmit)="onsubmit()">
+    <label>heroid:</label>
+    <input id="heroid" type="id" formControlName="heroid">
+    <br/>
+  <label>heroname:</label>
+  <input id="heroname" type="text" formControlName="heroname">
+  <br>
+  <label>place:</label>
+  <input id="place" type="text" formControlName="place">
+  <button type="submit">save</button>
+</form>

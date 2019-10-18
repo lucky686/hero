@@ -1,0 +1,17 @@
+<p>template works!</p>
+
+<div>
+  <form  #heroform="ngForm" (ngSubmit)="onSubmit(heroform.value)">
+    <div class="form-group">
+    <label>heroname:</label>
+    <input id="heroname" type="text" #name="ngModel" required class="form-control" name="heroname" ngModel>
+<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+please enter the name
+</div>
+    <br>
+    <label>place:</label>
+    <input id="place" type="text" name="place" ngModel>
+    <button type="submit">save</button>
+  </div>
+  </form>
+</div>
