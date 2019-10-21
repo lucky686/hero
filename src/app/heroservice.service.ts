@@ -7,8 +7,12 @@ import {Hero} from './hero';
   providedIn: 'root'
 })
 export class HeroserviceService {
+
   private heroesurl = 'https://localhost:44302/api/Heroesapi';
 
+private redirectUrl = '/';
+
+private isloggedIn = false;
   constructor(private http: HttpClient) { }
   // const url1 = '${this.heroesurl}/${id}';
   // new httpclient automatically coverts json data so no need to use map method
@@ -28,11 +32,15 @@ export class HeroserviceService {
 
   }
   posthero(hero: any): Observable<Hero> {
-    // const url = '${this.heroesurl + "/"+id}';
     const url = this.heroesurl;
     return this.http.post<Hero>(url, hero);
 
-    // this.httpClient.post(_URL,FormData,ParseHeaders).subscribe((res) => {
-    //   console.log(res);
   }
+  // isUserAuthenticated(heroid: number, heroname: string): Observable<boolean> {
+  //   return this.getHeroes().map(heroes => let hero = Hero.find(Hero => (Hero.heroid === heroid) && (Hero.heroname === heroname)));
+  // }
+
+  getRedirectUrl(): string {
+    return this.redirectUrl;
+}
 }
