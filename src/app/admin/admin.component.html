@@ -1,16 +1,26 @@
-<p>admin works!</p>
-<div>
+
+<!-- <nav>
+  <a [routerLink]="['/dashboard']">dashboard</a>
+  <br>
+  <a [routerLink]="['/heroes']">Heroes</a>
+  <br>
+  <a [routerLink]="['/template']">template</a>
+</nav> -->
+<div class="container">
   <form  #adminform="ngForm" (ngSubmit)="onSubmit(adminform.value)">
     <div class="form-group">
     <label>adminname:</label>
     <input id="adminname" type="text" #name="ngModel" required class="form-control" name="adminname" ngModel>
 <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-please enter the name
 </div>
     <br>
     <label>password:</label>
     <input id="password" type="text" name="password" ngModel>
-    <button type="submit">save</button>
+    <br>
+    <button type="submit">Submit</button>
+    <br>
+    <button (click)="logout()">logout</button>
   </div>
   </form>
 </div>
+

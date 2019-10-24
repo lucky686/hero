@@ -10,6 +10,9 @@ import { HerodetailComponent } from './herodetail/herodetail.component';
 import { HeroserviceService} from './heroservice.service';
 import { TemplateComponent } from './template/template.component';
 import { AdminComponent } from './admin/admin.component';
+import { AddadminComponent } from './admin/addadmin/addadmin.component';
+import { EditadminComponent } from './admin/editadmin/editadmin.component';
+import { AuthGuardService } from './guards/auth-guard.service';
 
 
 @NgModule({
@@ -19,7 +22,9 @@ import { AdminComponent } from './admin/admin.component';
     HeroesComponent,
     HerodetailComponent,
     TemplateComponent,
-    AdminComponent
+    AdminComponent,
+    AddadminComponent,
+    EditadminComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +33,7 @@ import { AdminComponent } from './admin/admin.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [HeroserviceService],
+  providers: [HeroserviceService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

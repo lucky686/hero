@@ -8,10 +8,9 @@ import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, Router } from
 export class AuthGuardService implements CanActivate {
 
   constructor(private router: Router) { }
-
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     // tslint:disable-next-line: triple-equals
-    if (sessionStorage.getItem('admin') != 'NULL') {
+    if (sessionStorage.getItem('admin') != null) {
       return true;
     }
     this.router.navigate(['heroes']);
